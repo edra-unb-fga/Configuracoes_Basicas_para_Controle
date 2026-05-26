@@ -107,7 +107,7 @@ Faremos a instalação de algumas dependências do Python.
 ```bash
 pip3 install --user -U empy pyros-genmsg setuptools
 ```
-Dependências necessárias para o funcionamento do Gazebo
+Dependências necessárias para o funcionamento do Gazebo.
 ```bash
 pip3 install kconfiglib
 pip install --user jsonschema
@@ -125,4 +125,23 @@ cmake ..
 make
 sudo make install
 sudo ldconfig /usr/local/lib/
+```
+
+# Gazebo
+Versão: Gazebo Harmonic v8.11.0
+
+Durante a instalação do ROS2 Humble, o Gazebo Classic 7 (versão 7.9.0) é automaticamente instalado, porém, não funciona para as simulações que faremos. Por isso, iremos remove-lo completamente e substituí-lo pelo correto.
+
+Desinstalação completa do Gazebo Classic 7.
+```bash
+sudo apt remove gz-garden gz-sim7 ros-humble-ros-gzgarden
+sudo apt autoremove
+```
+Baixar e instalar o Gazebo Harmonic.
+```bash
+sudo apt update
+sudo apt install gz-harmonic
+```
+```bash
+sudo apt install ros-humble-ros-gzharmonic
 ```
