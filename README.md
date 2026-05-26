@@ -88,3 +88,41 @@ Configuração do ambiente.
 ```bash
 source /opt/ros/humble/setup.bash
 ```
+
+**Teste de Funcionamento:**
+Em um primeiro terminal, execute este código.
+```bash
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_cpp talker
+```
+Já no segundo, execute este outro.
+```bash
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_py listener
+```
+Você deve ver o talker dizendo que está publicando mensagens e o listener dizendo “eu ouvi essas mensagens”. Isso verifica que as APIs em C++ e Python estão funcionando corretamente.
+
+## Instalando Dependências
+Faremos a instalação de algumas dependências do Python.
+```bash
+pip3 install --user -U empy pyros-genmsg setuptools
+```
+Dependências necessárias para o funcionamento do Gazebo
+```bash
+pip3 install kconfiglib
+pip install --user jsonschema
+pip install --user jinja2
+```
+
+## Micro DDS
+É o responsável pela tradução entre o ROS2 e o PX4.
+```bash
+git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+cd Micro-XRCE-DDS-Agent
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig /usr/local/lib/
+```
