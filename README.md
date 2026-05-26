@@ -8,17 +8,83 @@ Os recursos que utilizamos estão disponíveis mais facilmente no Linux, por iss
 Caso já tenha instalado, fique à vontade para pular essa etapa!
 
 ## Preparação do Sistema Operacional:
-* Baixe a [imagem iso](https://releases.ubuntu.com/jammy/) do Ubuntu.
-* Separe um pen drive de no **mínimo 8gb**.
-* Baixe o executável do [Rufus](https://rufus.ie/pt_BR/) para preparar o instalador do sistema.
-* Abra o executável do Rufus e **selecione a imagem ISO** do Ubuntu.
-* Escolha o pen drive que será configurado e clique em **START**.
-* Quando finalizar, seu instalador do Ubuntu estará pronto
+* Baixe a [imagem iso](https://releases.ubuntu.com/jammy/) do Ubuntu;
+* Separe um pen drive de no **mínimo 8gb**;
+* Baixe o executável do [Rufus](https://rufus.ie/pt_BR/) para preparar o instalador do sistema;
+* Abra o executável do Rufus e **selecione a imagem ISO** do Ubuntu;
+* Escolha o pen drive que será configurado e clique em **START**;
+* Quando finalizar, seu instalador do Ubuntu estará pronto!
 
 ## Instalação do Ubuntu
-* Reserve pelo menos **80gb** no seu disco rígido para o novo sistema.
-* Desligue o computador e com o pen drive conectado acesse a bios do seu dispositivo.
-* Na bios, mude a prioridade de boot de forma que o instalador seja o primeiro da lista.
-* Salve as alterações e reinicie o computador.
-* Quando ligar, o instalador do Ubuntu deve ser iniciado.
+* Reserve pelo menos **80gb** no seu disco rígido para o novo sistema;
+* Desligue o computador e com o pen drive conectado acesse a bios do seu dispositivo;
+* Na bios, mude a prioridade de boot de forma que o instalador seja o primeiro da lista;
+* Salve as alterações e reinicie o computador;
+* Quando ligar, o instalador do Ubuntu deve ser iniciado;
 * Siga as etapas caso queira fazer um dual-boot ou uma instalação limpa.
+
+# Instalações
+Agora, faremos uma série de instalações e configurações para conseguirmos realizar as simulações.
+
+## PX4 Autopilot
+Para baixar e instalar o [PX4](https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu#simulation-and-nuttx-pixhawk-targets) rode esses códigos no seu terminal.
+```bash
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive -b release/1.15
+```
+```bash
+bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+```
+**Reinicie** seu dispositivo antes de continuar.
+
+## ROS2 Humble
+Iremos configurar o [ROS2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html).
+
+Definir o locale.
+```bash
+locale  # check for UTF-8
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+locale  # verify settings
+```
+
+Agora precisaremos adicionar o repositório ROS2 apt no nosso sistema.
+```bash
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+
+Os pacotes ros-apt-source fornecem chaves e configurações de fontes do APT para os vários repositórios do ROS.
+
+Instalar o pacote ros2-apt-source configurará os repositórios do ROS 2 para o seu sistema. As atualizações da configuração dos repositórios ocorrerão automaticamente quando novas versões desse pacote forem lançadas nos repositórios do ROS.
+```bash
+sudo apt update && sudo apt install curl -y
+export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
+curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+sudo dpkg -i /tmp/ros2-apt-source.deb
+```
+
+Instalar os pacotes do ROS2.
+
+Atualize seus caches de repositório apt após configurar os repositórios.
+```bash
+sudo apt update
+```
+
+Os pacotes do ROS 2 são compilados em sistemas Ubuntu atualizados com frequência. É sempre recomendado garantir que seu sistema esteja atualizado antes de instalar novos pacotes.
+```bash
+sudo apt upgrade
+```
+
+Instalação do ROS.
+```bash
+sudo apt install ros-humble-desktop
+```
+
+Configuração do ambiente.
+```bash
+source /opt/ros/humble/setup.bash
+```
