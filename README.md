@@ -105,11 +105,20 @@ Você deve ver o talker dizendo que está publicando mensagens e o listener dize
 ## Instalando Dependências
 Faremos a instalação de algumas dependências do Python.
 ```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3-pip python3-venv python3-dev -y
+```
+```bash
 pip3 install --user -U empy pyros-genmsg setuptools
 ```
 Agora corrigiremos outras.
 ```bash
 pip3 install numpy pymap3d simple-pid --upgrade
+```
+Instalação do Yolo
+```bash
+pip install --upgrade pip
+pip install ultralytics 
 ```
 Dependências necessárias para o funcionamento do Gazebo.
 ```bash
