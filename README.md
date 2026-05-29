@@ -115,7 +115,7 @@ Agora corrigiremos outras.
 ```bash
 pip3 install numpy pymap3d simple-pid --upgrade
 ```
-Instalação do Yolo
+Instalação do Yolo.
 ```bash
 pip install --upgrade pip
 pip install ultralytics 
