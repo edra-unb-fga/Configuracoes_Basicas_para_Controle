@@ -26,6 +26,44 @@ Caso já tenha instalado, fique à vontade para pular essa etapa!
 # Instalações
 Agora, faremos uma série de instalações e configurações para conseguirmos realizar as simulações.
 
+## Git
+Antes de iniciarmos, faremos a configuração do Git para conseguirmos clonar os repositórios que precisaremos.
+
+Atualizar o sistema e instalar o Git.
+```bash
+sudo apt update
+sudo apt install git -y
+```
+Configurar a identidade local.
+```bash
+git config --global user.name "Nome de Usuário"
+git config --global user.email "seu-email@exemplo.com"
+```
+Gerar uma nova chave [SSH](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+```bash
+ssh-keygen -t ed25519 -C "seu-email@exemplo.com"
+```
+Quando for solicitado a inserir um arquivo para salvar a chave, pressione Enter para aceitar o local padrão do arquivo. Observe que, se você criou chaves SSH anteriormente, ssh-keygen pode pedir que você reescreva outra chave.
+
+Adicionar chave ao agente SSH.
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+Copie a chave pública SSH para a sua área de transferência.
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+[Adicionar chave SSH](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) à conta Github.
+1. Acesse o site do Github e canto superior direito , clique em sua imagem de perfil e, em seguida, clique em **Configurações**.
+2. Na seção "Access" da barra lateral, clique em **SSH and GPG keys**.
+3. Clique em **Nova chave SSH** ou **Adicionar chave SSH**.
+4. No campo "Title" (Título), adicione um nome para a nova chave.
+5. Defina o tipo como chave autenticação.
+6. No campo "Chave", cole sua chave pública.
+7. Clique em **Adicionar chave SSH**.
+
+
 ## PX4 Autopilot
 Para baixar e instalar o [PX4](https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu#simulation-and-nuttx-pixhawk-targets) rode esses códigos no seu terminal.
 ```bash
