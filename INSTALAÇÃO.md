@@ -10,9 +10,9 @@ Caso já tenha instalado, fique à vontade para pular essa etapa!
 ## Preparação do Sistema Operacional:
 * Baixe a [imagem iso](https://releases.ubuntu.com/jammy/) do Ubuntu;
 * Separe um pen drive de no **mínimo 8gb**;
-* Baixe o executável do [Rufus](https://rufus.ie/pt_BR/) para preparar o instalador do sistema;
-* Abra o executável do Rufus e **selecione a imagem ISO** do Ubuntu;
-* Escolha o pen drive que será configurado e clique em **START**;
+* Baixe o executável do [Balena Etcher](https://etcher.balena.io/) para preparar o instalador do sistema;
+* Abra o executável do Balena Etcher e **selecione a imagem ISO** do Ubuntu em **"FLASH FROM FILE"**;
+* Escolha o pen drive que será configurado e clique em **FLASH!**;
 * Quando finalizar, seu instalador do Ubuntu estará pronto!
 
 ## Instalação do Ubuntu
