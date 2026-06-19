@@ -16,6 +16,7 @@ Agora, iniciaremos o Visual Studio Code (configure previamente sua conta).
 code .
 ```
 Com o código da missão aberto no Visual Studio Code, inicie **três** terminais, com o primeiro aberto, basta apertar **Ctrl+Shift+5** para iniciar os demais.
+
 Antes, faremos o build do código para podermos iniciá-lo.
 Lembrando, após qualquer modificação, é preciso **refazer o build!**
 ```bash
