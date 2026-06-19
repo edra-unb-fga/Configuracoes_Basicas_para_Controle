@@ -20,7 +20,6 @@ Com o código da missão aberto no Visual Studio Code, inicie **três** terminai
 Antes, faremos o build do código para podermos iniciá-lo.
 Lembrando, após qualquer modificação, é preciso **refazer o build!**
 ```bash
-rm -rf build/ install/ log/
 colcon build
 ```
 Espere finalizar para avançar.
