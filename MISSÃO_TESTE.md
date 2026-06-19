@@ -25,7 +25,7 @@ colcon build
 Espere finalizar para avançar.
 
 ## Iniciar a Missão Teste
-Em um dos terminais iniciaremos o tradutor entre o ROS2 e o PX4.
+Em um dos terminais iniciaremos o tradutor entre o ROS2 e o PX4, ele ficará rodando durante toda a simulação.
 ```bash
 MicroXRCEAgent udp4 -p 8888
 ```
@@ -35,8 +35,17 @@ cd ~/PX4-Autopilot
 make clean
 make px4_sitl gz_x500_mono_cam
 ```
-Já no último, iniciaremos o código, dentro da pasta da missão.
+Estará tudo correto se aparecer a mensagem: **Ready for takeoff!**
+**Detalhe:** Não é preciso limpar toda vez que for realizar uma nova inicialização do Gazebo, somente se for a primeira vez após uma grande modificação, por isso, caso prefira, fique à vontade para executar somente a última linha.
+```bash
+cd ~/PX4-Autopilot
+make px4_sitl gz_x500_mono_cam
+```
+
+Já no último, iniciaremos o código, **dentro da pasta da missão**.
 ```bash
 source install/setup.bash
 ros2 run missao_template main
 ```
+Nesse passo, com o tradutor em funcionamento, o Gazebo já aberto corretamente e o código iniciado, a Missão Template será executada.
+A câmera do drone deve abrir automaticamente e em sequência a missão ser realizada!
