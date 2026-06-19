@@ -1,5 +1,5 @@
 # Configuração da Missão Teste
-Iremos configurar e rodar uma missão teste para checar se está tudo correto com o sistema.
+Iremos configurar e rodar uma Missão Teste para checar se está tudo correto com o sistema.
 
 Primeiramente, escolha uma pasta para clonar os repositórios, assim, manteremos tudo bem organizado!
 
