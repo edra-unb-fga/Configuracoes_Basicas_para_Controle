@@ -196,3 +196,5 @@ sudo apt install gz-harmonic
 ```bash
 sudo apt install ros-humble-ros-gzharmonic
 ```
+
+Agora, está tudo pronto para iniciarmos a missão.
