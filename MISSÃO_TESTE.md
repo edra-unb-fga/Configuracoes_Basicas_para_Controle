@@ -37,6 +37,7 @@ make clean
 make px4_sitl gz_x500_mono_cam
 ```
 Estará tudo correto se aparecer a mensagem: **Ready for takeoff!**
+
 **Detalhe:** Não é preciso limpar toda vez que for realizar uma nova inicialização do Gazebo, somente se for a primeira vez após uma grande modificação, por isso, caso prefira, fique à vontade para executar somente a última linha.
 ```bash
 cd ~/PX4-Autopilot
