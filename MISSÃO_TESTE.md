@@ -48,7 +48,7 @@ Estará tudo correto se aparecer a mensagem: **Ready for takeoff!**
 **Detalhe:** Não é preciso limpar toda vez que for realizar uma nova inicialização do Gazebo, somente se for a primeira vez de uma missão, arena, câmera no gazebo ou após uma grande modificação, por isso, caso prefira, fique à vontade para executar a versão reduzida do código.
 ```bash
 cd ~/PX4-Autopilot
-make px4_sitl gz_x500_mono_cam
+make px4_sitl gz_x500_mono_cam_down
 ```
 ### 3º terminal
 Já no último, iniciaremos o código, **dentro da pasta da missão**.
