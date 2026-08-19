@@ -41,7 +41,7 @@ Use esse código para principalmente a **primeira inicialização!**
 ```bash
 cd ~/PX4-Autopilot
 make clean
-make px4_sitl gz_x500_mono_cam
+make px4_sitl gz_x500_mono_cam_down
 ```
 Estará tudo correto se aparecer a mensagem: **Ready for takeoff!**
 
