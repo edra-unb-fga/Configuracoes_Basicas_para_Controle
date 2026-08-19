@@ -147,7 +147,11 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip python3-venv python3-dev -y
 ```
 ```bash
-pip3 install --user -U empy pyros-genmsg setuptools
+sudo apt update
+sudo apt install python3-colcon-common-extensions
+```
+```bash
+pip3 install --user -U "empy==3.3.4" pyros-genmsg setuptools
 ```
 Agora corrigiremos outras.
 ```bash
