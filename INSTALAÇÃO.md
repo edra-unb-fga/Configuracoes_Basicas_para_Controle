@@ -186,8 +186,24 @@ Durante a instalação do ROS2 Humble, o Gazebo Classic 7 (versão 7.9.0) é aut
 Desinstalação completa do Gazebo Classic 7.
 ```bash
 sudo apt remove gz-garden gz-sim7 ros-humble-ros-gzgarden
+```
+```bash
 sudo apt autoremove
 ```
+
+Confira se a desinstalação do Gazebo Classic 7 foi bem sucedida, se não, tente esse código alternativo para realizar a desinstalação.
+```bash
+sudo apt purge gz-garden gz-sim7-cli gz-launch6-cli gz-transport12-cli
+```
+```bash
+sudo apt autoremove --purge
+```
+
+Ainda sim, caso não funcione, confira o nome configurado na sua máquina local para o Gazebo Classic 7.
+```bash
+dpkg -l | grep -iE "gz-|gazebo|ros-.*gz"
+```
+
 Baixar e instalar o Gazebo Harmonic.
 ```bash
 sudo apt update
