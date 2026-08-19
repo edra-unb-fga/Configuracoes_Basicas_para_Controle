@@ -11,7 +11,7 @@ Com tudo clonado, vamos abrir a pasta pelo terminal.
 ```bash
 cd [SUA PASTA PARA OS PROJETOS]/Workspace_Template/
 ```
-Agora, iniciaremos o Visual Studio Code (configure previamente sua conta).
+Agora, iniciaremos o Visual Studio Code via terminal **na pasta da missão template** (configure previamente sua conta).
 ```bash
 code .
 ```
@@ -21,6 +21,7 @@ Antes, faremos o build do código para podermos iniciá-lo.
 
 Lembrando, após qualquer modificação, é preciso **refazer o build!** E é sempre feito **dentro da pasta da missão!**
 ```bash
+source /opt/ros/humble/setup.bash
 colcon build
 ```
 Espere finalizar para avançar.
