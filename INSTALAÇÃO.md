@@ -148,6 +148,10 @@ sudo apt install python3-pip python3-venv python3-dev -y
 ```
 ```bash
 sudo apt update
+sudo apt install ros-humble-py-trees ros-humble-py-trees-ros ros-humble-py-trees-ros-interfaces
+```
+```bash
+sudo apt update
 sudo apt install python3-colcon-common-extensions
 ```
 ```bash
